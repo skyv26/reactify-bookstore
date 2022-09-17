@@ -12,7 +12,7 @@ const Header = () => (
             <NavLink to="/" className={({ isActive }) => `${style.Link} ${(isActive ? 'active' : '')}`} end>Books</NavLink>
           </li>
           <li className={style.List}>
-            <NavLink to="/category" className={({ isActive }) => `${style.Link} ${(isActive ? 'active' : '')}`} end>Categories</NavLink>
+            <NavLink to="/categories" className={({ isActive }) => `${style.Link} ${(isActive ? 'active' : '')}`}>Categories</NavLink>
           </li>
         </ul>
       </nav>
