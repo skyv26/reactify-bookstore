@@ -1,6 +1,6 @@
-# Project Name
+# Reactify BookStore CMS
 
-> Math Magician is the intermediate project for learning React.js in a fun and interactive way. This project will be update time to time by adding the features step by step. We will see Mathematics related utilities like Calculator and some tricks or magic in upcoming few weeks.
+> Awesome Book project is a project in order to practice and learn the things more about on JavaScript. It is in its initial state and as the day will pass more feature will be added to this project later.
 
 
 ## Built With
@@ -11,13 +11,10 @@
 
 ## Live Demo (if available)
 
-[click here 🚀](https://math-magician-skyv.netlify.app/)
+[coming soon... 🥚]()
 
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
 
 
 To get a local copy up and running follow these simple example steps.
@@ -28,7 +25,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Setup
 
-- git clone `https://github.com/skyv26/math-magician`
+- git clone `https://github.com/skyv26/reactify-bookstore.git`
 
 ### Install
 
