@@ -1,16 +1,18 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import style from './Header.module.css';
 
 const Header = () => (
   <>
     <header className={style.Header}>
+      <h1 className={style.Logo}>Bookstore CMS</h1>
       <nav className={style.Navigation}>
         <ul className={style.UnorderedList}>
           <li className={style.List}>
-            Books
+            <NavLink to="/" className={({ isActive }) => `${style.Link} ${(isActive ? 'active' : '')}`} end>Books</NavLink>
           </li>
           <li className={style.List}>
-            Categories
+            <NavLink to="/category" className={({ isActive }) => `${style.Link} ${(isActive ? 'active' : '')}`} end>Categories</NavLink>
           </li>
         </ul>
       </nav>
