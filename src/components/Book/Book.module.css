@@ -1,0 +1,17 @@
+.BookContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 30%;
+  padding: 2rem;
+}
+
+.BookList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.BookDetail {
+  font-size: 1.75rem;
+}

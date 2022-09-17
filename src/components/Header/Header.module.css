@@ -1,0 +1,32 @@
+.Header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.Logo {
+  color: rgb(0, 174, 255);
+}
+
+.UnorderedList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+}
+
+.Link {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.493);
+}
+
+.Active {
+  color: black;
+}
