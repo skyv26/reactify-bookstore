@@ -5,3 +5,7 @@ const STATUS = 'FALSE';
 const initialState = [];
 
 // Action Creators
+export const addCategories = (category) => ({
+  type: STATUS,
+  category,
+});
