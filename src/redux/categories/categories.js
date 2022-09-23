@@ -27,7 +27,11 @@ const categoriesReducer = (state = initialState, action) => {
     case REMOVE_CATEGORY: return [
       ...state.filter((each) => each.id !== action.payload.id),
     ];
-    default: return state;
+    default: return [
+      {
+        text: 'Under construction',
+      },
+    ];
   }
 };
 
