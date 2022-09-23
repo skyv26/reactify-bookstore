@@ -18,11 +18,14 @@ const AddBook = () => {
     e.preventDefault();
     const author = bookAuthorRef.current.value;
     const title = bookTitleRef.current.value;
-    updateBookObj((prevState) => ({
-      ...prevState,
-      title,
-      author,
-    }));
+    updateBookObj(() => {
+      const id = uuidv4();
+      return {
+        title,
+        author,
+        id,
+      };
+    });
   };
 
   return (
