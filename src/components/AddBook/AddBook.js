@@ -1,19 +1,35 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Book from '../Book/Book';
 import style from './AddBook.module.css';
 
-const AddBook = () => (
-  <>
-    <Book />
-    <div className={style.FormContainer}>
-      <p className={style.FormHeading}>add new book</p>
-      <form className={style.AddBookForm}>
-        <input type="text" className={style.Input} placeholder="Book Title" />
-        <input type="text" className={style.Input} placeholder="Author" />
-        <button type="submit" className={style.Input}>add book</button>
-      </form>
-    </div>
-  </>
-);
+const AddBook = () => {
+  const dispatch = useDispatch();
+  const [currentBookObj, updateBookObj] = useState({
+    id: null,
+    title: null,
+    author: null,
+  });
+  const bookAuthorRef = useRef();
+  const bookTitleRef = useRef();
+
+  const addBookHandler = () => {
+    const current = '';
+  };
+
+  return (
+    <>
+      <Book />
+      <div className={style.FormContainer}>
+        <p className={style.FormHeading}>add new book</p>
+        <form className={style.AddBookForm} onSubmit={addBookHandler}>
+          <input type="text" className={style.Input} ref={bookTitleRef} placeholder="Book Title" />
+          <input type="text" className={style.Input} ref={bookAuthorRef} placeholder="Author" />
+          <button type="submit" className={style.Input}>add book</button>
+        </form>
+      </div>
+    </>
+  );
+};
 
 export default AddBook;
