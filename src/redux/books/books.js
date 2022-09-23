@@ -3,17 +3,38 @@ const ADD_BOOK = 'ADD_BOOK';
 const REMOVE_BOOK = 'REMOVE_BOOK';
 
 // Default Data
-const initialState = [];
+const initialState = [
+  {
+    id: 1,
+    title: 'Game of Life',
+    author: 'Mr. Secret',
+  },
+  {
+    id: 2,
+    title: 'Awesome Guy',
+    author: 'Miss Bethary',
+  },
+  {
+    id: 3,
+    title: 'Coding Jokes',
+    author: 'Aakash Verma',
+  },
+  {
+    id: 4,
+    title: 'Uncertain Goal',
+    author: 'Secretu',
+  },
+];
 
 // Action Creators
-export const addBook = (book) => ({
+export const addBook = (payload) => ({
   type: ADD_BOOK,
-  book,
+  payload,
 });
 
-export const removeBook = (book) => ({
+export const removeBook = (payload) => ({
   type: REMOVE_BOOK,
-  book,
+  payload,
 });
 
 // Books Reducer
