@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import style from './Categories.module.css';
 
 const Categories = () => {
   const [status, updateStatus] = useState(false);
@@ -13,7 +14,7 @@ const Categories = () => {
   return (
     <>
       <button type="button" onClick={checkStatusHandler}>Check Status</button>
-      { status ? <p>{category.text}</p> : null }
+      { status ? <p className={style.Alert}>{category.text}</p> : null }
     </>
   );
 };
