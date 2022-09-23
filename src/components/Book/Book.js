@@ -1,23 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import style from './Book.module.css';
 
-const Book = ({ title = 'Code Life', author = 'Aakash Verma' }) => (
-  <ul className={style.BookContainer}>
-    <li className={style.BookList}>
-      <p className={style.BookDetail}>
-        {`${title}
-         by `}
-        <span>{author}</span>
-      </p>
-      <button type="button">Remove</button>
-    </li>
-  </ul>
-);
-
-Book.propTypes = {
-  title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
+const Book = () => {
+  const books = useSelector((state) => state.booksReducer);
+  return (
+    <ul className={style.BookContainer}>
+      { books.map((each) => (
+        <li key={each.id} className={style.BookList}>
+          <p className={style.BookDetail}>
+            {`${each.title}
+            by `}
+            <span>{each.author}</span>
+          </p>
+          <button type="button">Remove</button>
+        </li>
+      ))}
+      ;
+    </ul>
+  );
 };
 
 export default Book;
