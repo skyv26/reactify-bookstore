@@ -7,6 +7,12 @@ const initialState = [];
 
 // Action Creators
 export const addCategories = (category) => ({
-  type: STATUS,
+  type: ADD_CATEGORY,
   category,
 });
+
+export const removeCategories = (category) => ({
+  type: REMOVE_CATEGORY,
+  category,
+});
+
