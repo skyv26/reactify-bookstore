@@ -1,9 +1,14 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeBook } from '../../redux/books/books';
 import style from './Book.module.css';
 
 const Book = () => {
+  const dispatch = useDispatch();
   const books = useSelector((state) => state.booksReducer);
+  const removeBookHandler = (obj) => {
+    dispatch(removeBook(obj));
+  };
   return (
     <ul className={style.BookContainer}>
       { books.map((each) => (
@@ -13,7 +18,7 @@ const Book = () => {
             by `}
             <span>{each.author}</span>
           </p>
-          <button type="button">Remove</button>
+          <button type="button" onClick={() => { removeBookHandler(each); }}>Remove</button>
         </li>
       ))}
       ;
