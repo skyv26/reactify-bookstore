@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { addBook, removeBook } from '../books/books';
+import { removeBook } from '../books/books';
 
 // ACTION TYPES
 const ADD_BOOK = 'books/api/newBook';
@@ -14,7 +14,7 @@ const API = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstor
 const initialState = {};
 
 export const addBookThunk = createAsyncThunk(ADD_BOOK, async (action) => {
-  const { payload, dispatch } = action;
+  const { payload } = action;
   await fetch(API, {
     method: 'POST',
     headers: {
@@ -22,7 +22,7 @@ export const addBookThunk = createAsyncThunk(ADD_BOOK, async (action) => {
     },
     body: JSON.stringify(payload),
   })();
-  dispatch(addBook(payload));
+  // dispatch(addBook(payload));
 });
 
 export const removeBookThunk = createAsyncThunk(REMOVE_BOOK, async (action) => {
@@ -45,10 +45,12 @@ export const fetchBookThunk = createAsyncThunk(FETCH_BOOK, async () => {
 const reduxThunk = (state = initialState, action) => {
   const { payload } = action;
   switch (action.type) {
-    case ADD_BOOK: return {
-      ...state,
-      payload,
-    };
+    case ADD_BOOK:
+      console.log('Aakash');
+      return {
+        ...state,
+        payload,
+      };
     case REMOVE_BOOK: return {
       ...state.filter((each) => each.item_id !== payload.item_id),
     };
