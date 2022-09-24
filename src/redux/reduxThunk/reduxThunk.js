@@ -1,5 +1,5 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { addBook, removeBook } from "../books/books";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { addBook, removeBook } from '../books/books';
 
 // ACTION TYPES
 const ADD_BOOK = 'books/api/newBook';
@@ -33,14 +33,7 @@ export const removeBookThunk = createAsyncThunk(REMOVE_BOOK, async (action) => {
   dispatch(removeBook(payload));
 });
 
-export const fetchBookThunk = createAsyncThunk(FETCH_BOOK, async (action) => {
-  const { dispatch } = action;
-  await fetch(API, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(payload),
-  })();
-  dispatch();
+export const fetchBookThunk = createAsyncThunk(FETCH_BOOK, async () => {
+  const data = await fetch(API)();
+  return data;
 });
