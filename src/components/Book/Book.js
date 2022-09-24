@@ -1,24 +1,26 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeBook } from '../../redux/books/books';
+import { removeBookThunk } from '../../redux/books/books';
+// import { removeBook } from '../../redux/books/books';
 import style from './Book.module.css';
 
 const Book = () => {
   const dispatch = useDispatch();
   const books = useSelector((state) => state.booksReducer);
   const removeBookHandler = (obj) => {
-    dispatch(removeBook(obj));
+    dispatch(removeBookThunk({ payload: obj, dispatch }));
   };
+
   return (
     <ul className={style.BookContainer}>
-      { books.map((each) => (
-        <li key={each.id} className={style.BookList}>
+      { books.map(({ item_id: itemId, title, author }) => (
+        <li key={itemId} className={style.BookList}>
           <p className={style.BookDetail}>
-            {`${each.title}
+            {`${title}
             by `}
-            <span>{each.author}</span>
+            <span>{author}</span>
           </p>
-          <button type="button" onClick={() => { removeBookHandler(each); }}>Remove</button>
+          <button type="button" onClick={() => { removeBookHandler({ item_id: itemId }); }}>Remove</button>
         </li>
       ))}
       ;
