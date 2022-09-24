@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { removeBook } from '../books/books';
+import { addBook, removeBook } from '../books/books';
 
 // ACTION TYPES
 const ADD_BOOK = 'books/api/newBook';
@@ -12,18 +12,17 @@ const API = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstor
 // InitialState
 
 const initialState = {};
-
-export const addBookThunk = createAsyncThunk(ADD_BOOK, async (action) => {
-  const { payload } = action;
+export const addBookThunk = createAsyncThunk(ADD_BOOK, (action) => (async () => {
+  const { payload, dispatch } = action;
   await fetch(API, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(payload),
-  })();
-  // dispatch(addBook(payload));
-});
+  });
+  dispatch(addBook(payload));
+})());
 
 export const removeBookThunk = createAsyncThunk(REMOVE_BOOK, async (action) => {
   const { payload, dispatch } = action;
@@ -43,18 +42,21 @@ export const fetchBookThunk = createAsyncThunk(FETCH_BOOK, async () => {
 });
 
 const reduxThunk = (state = initialState, action) => {
-  const { payload } = action;
+  let payload = null;
+  if (action.type.includes('fulfilled')) {
+    payload = action.meta.arg;
+    payload = JSON.stringify(payload);
+  }
   switch (action.type) {
-    case ADD_BOOK:
-      console.log('Aakash');
+    case `${ADD_BOOK}/fulfilled`:
       return {
         ...state,
         payload,
       };
-    case REMOVE_BOOK: return {
+    case `${REMOVE_BOOK}/fulfilled`: return {
       ...state.filter((each) => each.item_id !== payload.item_id),
     };
-    case FETCH_BOOK: return {
+    case `${FETCH_BOOK}/fulfilled`: return {
       ...state,
       payload,
     };

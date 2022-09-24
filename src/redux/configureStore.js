@@ -7,7 +7,7 @@ const rootReducer = configureStore({
   reducer: {
     booksReducer,
     categoriesReducer,
-    middleware: reduxThunk,
+    reduxThunk,
   },
 });
 
