@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeBookThunk } from '../../redux/reduxThunk/reduxThunk';
+import { removeBookThunk } from '../../redux/books/books';
 // import { removeBook } from '../../redux/books/books';
 import style from './Book.module.css';
 
@@ -8,7 +8,6 @@ const Book = () => {
   const dispatch = useDispatch();
   const books = useSelector((state) => state.booksReducer);
   const removeBookHandler = (obj) => {
-    // dispatch(removeBook(obj));
     dispatch(removeBookThunk({ payload: obj, dispatch }));
   };
 

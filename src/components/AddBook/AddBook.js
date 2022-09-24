@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { addBookThunk } from '../../redux/reduxThunk/reduxThunk';
+import { addBookThunk } from '../../redux/books/books';
 import Book from '../Book/Book';
 import style from './AddBook.module.css';
 
