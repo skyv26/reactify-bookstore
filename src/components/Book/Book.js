@@ -1,14 +1,17 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeBook } from '../../redux/books/books';
+import { removeBookThunk } from '../../redux/reduxThunk/reduxThunk';
+// import { removeBook } from '../../redux/books/books';
 import style from './Book.module.css';
 
 const Book = () => {
   const dispatch = useDispatch();
   const books = useSelector((state) => state.booksReducer);
-  const removeBookHandler = (id) => {
-    dispatch(removeBook(id));
+  const removeBookHandler = (obj) => {
+    // dispatch(removeBook(obj));
+    dispatch(removeBookThunk({ payload: obj, dispatch }));
   };
+
   return (
     <ul className={style.BookContainer}>
       { books.map(({ item_id: itemId, title, author }) => (
@@ -18,7 +21,7 @@ const Book = () => {
             by `}
             <span>{author}</span>
           </p>
-          <button type="button" onClick={() => { removeBookHandler(itemId); }}>Remove</button>
+          <button type="button" onClick={() => { removeBookHandler({ item_id: itemId }); }}>Remove</button>
         </li>
       ))}
       ;

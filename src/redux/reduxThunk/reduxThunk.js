@@ -12,6 +12,7 @@ const API = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstor
 // InitialState
 
 const initialState = {};
+
 export const addBookThunk = createAsyncThunk(ADD_BOOK, (action) => (async () => {
   const { payload, dispatch } = action;
   await fetch(API, {
@@ -24,17 +25,13 @@ export const addBookThunk = createAsyncThunk(ADD_BOOK, (action) => (async () => 
   dispatch(addBook(payload));
 })());
 
-export const removeBookThunk = createAsyncThunk(REMOVE_BOOK, async (action) => {
+export const removeBookThunk = createAsyncThunk(REMOVE_BOOK, (action) => (async () => {
   const { payload, dispatch } = action;
   await fetch(`${API}/${payload.item_id}`, {
     method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(payload),
-  })();
+  });
   dispatch(removeBook(payload));
-});
+})());
 
 export const fetchBookThunk = createAsyncThunk(FETCH_BOOK, async () => {
   const data = await fetch(API)();
@@ -54,7 +51,7 @@ const reduxThunk = (state = initialState, action) => {
         payload,
       };
     case `${REMOVE_BOOK}/fulfilled`: return {
-      ...state.filter((each) => each.item_id !== payload.item_id),
+      // ...state.filter((each) => each.item_id !== payload.item_id),
     };
     case `${FETCH_BOOK}/fulfilled`: return {
       ...state,
