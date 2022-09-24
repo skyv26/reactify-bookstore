@@ -20,3 +20,15 @@ export const addBookThunk = createAsyncThunk(ADD_BOOK, async (action) => {
   })();
   dispatch(addBook(payload));
 });
+
+export const removeBookThunk = createAsyncThunk(REMOVE_BOOK, async (action) => {
+  const { payload, dispatch } = action;
+  await fetch(`${API}/${payload.item_id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })();
+  dispatch(addBook(payload));
+});
