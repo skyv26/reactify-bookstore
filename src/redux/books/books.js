@@ -44,13 +44,11 @@ export const removeBook = (payload) => ({
 // Books Reducer
 const booksReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_BOOK:
-      console.log("Aakash");
-      // return [
-      //   ...state,
-      //   action.payload,
-      // ];
-      break;
+    case ADD_BOOK: return [
+      ...state,
+      action.payload,
+    ];
+
     case REMOVE_BOOK: return [
       ...state.filter((each) => each.item_id !== action.payload.item_id),
     ];
