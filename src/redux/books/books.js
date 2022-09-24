@@ -23,7 +23,7 @@ const initialState = [
     category: 'Drama',
   },
   {
-    id: 4,
+    item_id: 4,
     title: 'Uncertain Goal',
     author: 'Secretu',
     category: 'Comedy',
