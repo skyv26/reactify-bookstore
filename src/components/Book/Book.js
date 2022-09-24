@@ -13,17 +13,50 @@ const Book = () => {
 
   return (
     <ul className={style.BookContainer}>
-      { books.map(({ item_id: itemId, title, author }) => (
+      { books.map(({
+        item_id: itemId,
+        category,
+        title,
+        author,
+      }) => (
         <li key={itemId} className={style.BookList}>
-          <p className={style.BookDetail}>
-            {`${title}
-            by `}
-            <span>{author}</span>
-          </p>
-          <button type="button" onClick={() => { removeBookHandler({ item_id: itemId }); }}>Remove</button>
+          <div className={style.AboutBook}>
+            <div className={style.BookInfo}>
+              <p className={style.Category}>{category}</p>
+              <p className={style.BookInfoWith}>
+                {title}
+                <span className={style.Author}>{author}</span>
+              </p>
+            </div>
+            <ul className={style.BookOperation}>
+              <li className={style.Operate}>
+                <button type="button" className={style.Operation}>Comments</button>
+              </li>
+              <li className={style.Operate}>
+                <button type="button" className={style.Operation} onClick={() => { removeBookHandler({ item_id: itemId }); }}>Remove</button>
+              </li>
+              <li className={style.Operate}>
+                <button type="button" className={style.Operation}>Edit</button>
+              </li>
+            </ul>
+          </div>
+          <div className={style.ProgressCircle}>
+            <div className={style.Circle} />
+            <p className={style.Rate}>
+              64%
+              <span className={style.Mark}>Completed</span>
+            </p>
+          </div>
+
+          <div className={style.ChapterStatus}>
+            <div className={style.Status}>
+              <p className={style.Chapter}>Current Chapter</p>
+              <p className={style.ChapterNumber}>Chapter 3: &quot;A Lesson Learned &quot;</p>
+            </div>
+            <button type="button" className={style.ProgressUp}>UPDATE PROGRESS</button>
+          </div>
         </li>
       ))}
-      ;
     </ul>
   );
 };

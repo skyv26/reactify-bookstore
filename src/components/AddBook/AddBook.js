@@ -34,8 +34,9 @@ const AddBook = () => {
   };
 
   return (
-    <>
+    <div className={style.Main}>
       <Book />
+      <hr />
       <div className={style.FormContainer}>
         <p className={style.FormHeading}>add new book</p>
         <form
@@ -48,7 +49,7 @@ const AddBook = () => {
           <button type="submit" className={style.Input}>add book</button>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 
