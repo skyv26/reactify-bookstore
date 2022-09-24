@@ -28,7 +28,7 @@ const AddBook = () => {
     }));
   };
 
-  const addBookHandler = (e) => {
+  const addBookHandler = async (e) => {
     e.preventDefault();
     dispatch(addBookThunk({ payload: currentBookObj, dispatch }));
   };
