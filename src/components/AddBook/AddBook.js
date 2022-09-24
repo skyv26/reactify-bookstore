@@ -1,16 +1,17 @@
 import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { addBook } from '../../redux/books/books';
+import { addBookThunk } from '../../redux/reduxThunk/reduxThunk';
 import Book from '../Book/Book';
 import style from './AddBook.module.css';
 
 const AddBook = () => {
   const dispatch = useDispatch();
   const [currentBookObj, updateBookObj] = useState({
-    id: null,
+    item_id: null,
     title: null,
     author: null,
+    category: 'ACTION',
   });
   const bookAuthorRef = useRef(currentBookObj.author);
   const bookTitleRef = useRef(currentBookObj.title);
@@ -18,18 +19,18 @@ const AddBook = () => {
   const inputHandler = () => {
     const author = bookAuthorRef.current.value;
     const title = bookTitleRef.current.value;
-    const id = uuidv4();
+    const itemId = uuidv4();
     updateBookObj((prevState) => ({
       ...prevState,
       title,
       author,
-      id,
+      item_id: itemId,
     }));
   };
 
   const addBookHandler = (e) => {
     e.preventDefault();
-    dispatch(addBook(currentBookObj));
+    dispatch(addBookThunk({ payload: currentBookObj, dispatch }));
   };
 
   return (
