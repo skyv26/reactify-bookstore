@@ -60,7 +60,8 @@
   border: 2px solid transparent;
 }
 
-.Author, .Operation {
+.Author,
+.Operation {
   display: block;
   font-family: 'Roboto Slab', serif;
   font-size: 0.875rem;
@@ -83,7 +84,7 @@
 
 .ChapterStatus {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   gap: 1rem;
 }
 
@@ -151,7 +152,7 @@
 }
 
 .Rate {
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
   font-weight: normal;
   font-stretch: normal;
@@ -164,7 +165,7 @@
 .Mark {
   display: block;
   opacity: 0.5;
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-size: 0.875rem;
   font-weight: normal;
   font-stretch: normal;

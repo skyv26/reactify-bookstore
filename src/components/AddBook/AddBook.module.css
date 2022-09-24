@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .FormContainer {
@@ -19,7 +20,7 @@
 
 .FormHeading {
   text-transform: uppercase;
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.25rem;
   font-weight: bold;
   font-stretch: normal;
@@ -27,11 +28,6 @@
   line-height: normal;
   letter-spacing: -0.18px;
   color: #888;
-}
-
-.AddBookForm {
-  display: flex;
-  gap: 1rem;
 }
 
 .Input {
@@ -49,7 +45,7 @@
   padding: 0.801rem 1.188rem 0.886rem 1.375rem;
   border-radius: 3px;
   background-color: #0290ff;
-  font-family: RobotoSlab;
+  font-family: 'Roboto Slab', serif;
   font-size: 0.813rem;
   font-weight: bold;
   font-stretch: normal;
